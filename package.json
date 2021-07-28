@@ -1,0 +1,40 @@
+{
+	"name": "mdx-bundler-images-error",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"clean": "rimraf .next",
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@heroicons/react": "^1.0.3",
+		"clsx": "^1.1.1",
+		"date-fns": "^2.23.0",
+		"fast-glob": "^3.2.7",
+		"gray-matter": "^4.0.3",
+		"mdx-bundler": "^5.1.2",
+		"next": "11.0.1",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"remark-gfm": "^1.0.0",
+		"remark-slug": "^6.1.0"
+	},
+	"devDependencies": {
+		"@svgr/webpack": "^5.5.0",
+		"@types/react": "17.0.15",
+		"autoprefixer": "^10.3.1",
+		"eslint": "7.31.0",
+		"eslint-config-next": "11.0.1",
+		"postcss": "^8.3.6",
+		"postcss-custom-properties": "^11.0.0",
+		"postcss-flexbugs-fixes": "^5.0.2",
+		"postcss-import": "^14.0.2",
+		"postcss-nested": "^5.0.5",
+		"rimraf": "^3.0.2",
+		"tailwindcss": "^2.2.7",
+		"typescript": "4.3.5"
+	}
+}

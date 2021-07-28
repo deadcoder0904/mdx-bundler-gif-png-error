@@ -1,0 +1,13 @@
+export type Tag =
+  | 'html'
+  | 'css'
+  | 'javascript'
+  | 'reactjs'
+  | 'nodejs'
+  | 'prisma'
+  | 'databases'
+  | 'postgresql'
+  | 'sqlite'
+  | 'windows'
+  | 'linux'
+  | 'mac'

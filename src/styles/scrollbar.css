@@ -1,0 +1,11 @@
+::-webkit-scrollbar {
+	@apply w-3 bg-gray-700;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply rounded-md bg-gray-300 border-2 border-solid border-gray-100;
+}
+
+::-webkit-scrollbar-track {
+	@apply rounded bg-transparent;
+}

@@ -1,0 +1,80 @@
+---
+title: 'Font in Tailwind CSS'
+date: '2020-09-06T14:54:37.229Z'
+tags: ['tailwindcss', 'font']
+author: 'Adam Cohle'
+isPublished: true
+---
+
+# Fonts in Tailwind CSS
+
+Watch [this official video](https://www.youtube.com/watch?v=sOnBG2wUm1s) by Tailwind Team.
+
+You can additionally see how [Tailwind Blog](https://blog.tailwindcss.com) adds `Inter var` font. Check [tailwind.config.js](https://github.com/tailwindlabs/blog.tailwindcss.com/blob/master/tailwind.config.js).
+
+Below is an example of using `Inter@400` font but you can use variable font by downloading it locally.
+
+# tailwind.config.js
+
+```js
+const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
+const mdx = require('@mdx-js/mdx')
+
+module.exports = {
+	mode: 'jit',
+	purge: {
+		content: ['./src/**/*.{js,mdx}', './next.config.js'],
+		transform: {
+			mdx: mdx.sync,
+		},
+	},
+	theme: {
+		extend: {
+			fontFamily: {
+				sans: ['Inter', ...defaultTheme.fontFamily.sans],
+			},
+		},
+	},
+}
+```
+
+See how it spreads sans-font using `...defaultTheme.fontFamily.sans`.
+
+And as you're using Next.js, then you can add font directly to your `body` tag using `_document.tsx` file like:
+
+# \_document.tsx
+
+```tsx
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
+
+class MyDocument extends Document {
+	static async getInitialProps(ctx: DocumentContext) {
+		const initialProps = await Document.getInitialProps(ctx)
+		return { ...initialProps }
+	}
+
+	render() {
+		return (
+			<Html lang="en">
+				<Head>
+					<link rel="preconnect" href="https://fonts.googleapis.com" />
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+					<link
+						href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+						rel="stylesheet"
+					/>
+				</Head>
+				<body className="font-sans">
+					<Main />
+					<NextScript />
+				</body>
+			</Html>
+		)
+	}
+}
+
+export default MyDocument
+```
+
+In the `Head`, I'm requesting `Inter@400` font & in the `body`, I'm adding `font-sans` as `className`. This should get it working :)
